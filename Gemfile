@@ -51,6 +51,7 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'orderly'
   gem 'simplecov'
   gem 'factory_bot_rails'
   gem 'faker'
