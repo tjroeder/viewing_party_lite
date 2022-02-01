@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe "relationships" do
-    it { should have_many(:parties)}
+  describe 'relationships' do
+    it { should have_many(:parties) }
     it { should have_many(:guest_parties) }
     it { should have_many(:parties).through(:guest_parties) }
   end

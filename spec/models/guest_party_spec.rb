@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe GuestParty, type: :model do
-  describe "relationships" do
+  describe 'relationships' do
     it { should belong_to(:user) }
     it { should belong_to(:party) }
   end
