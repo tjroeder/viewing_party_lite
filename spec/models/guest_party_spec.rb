@@ -15,6 +15,7 @@ RSpec.describe GuestParty, type: :model do
       expect(guest_party).to be_a(GuestParty)
       expect(guest_party.user).to be_a(User)
       expect(guest_party.party).to be_a(Party)
+      expect(guest_party.host_status).to eq('guest')
     end
   end
 end
