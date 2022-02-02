@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class GuestParty < ApplicationRecord
+class UserParty < ApplicationRecord
   belongs_to :party
   belongs_to :user
 
