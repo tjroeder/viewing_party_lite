@@ -49,6 +49,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+  gem 'valid_email2'
 end
 
 group :development do
