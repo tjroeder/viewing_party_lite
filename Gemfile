@@ -50,6 +50,7 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'valid_email2'
+  gem 'figaro'
 end
 
 group :development do
