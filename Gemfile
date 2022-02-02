@@ -38,7 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # HTTP Library service
 # gem 'net-http' # Maybe?
-gem 'faraday'
+gem 'faraday', '>= 1.8.0'
 gem 'faraday-net_http'
 
 group :development, :test do
@@ -49,7 +49,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
-  gem 'valid_email2'
   gem 'figaro'
 end
 
