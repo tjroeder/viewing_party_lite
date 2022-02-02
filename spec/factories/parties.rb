@@ -8,7 +8,5 @@ FactoryBot.define do
     sequence(:img_url) { |n| "/#{n}.jpg" }
     sequence(:movie_title) { Faker::Movie.title }
     sequence(:runtime)
-
-    user
   end
 end
