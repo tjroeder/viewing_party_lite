@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Party < ApplicationRecord
-  belongs_to :user
   has_many :guest_parties, dependent: nil
   has_many :users, through: :guest_parties
 
