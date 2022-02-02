@@ -4,11 +4,20 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
   end
 
   def create
+    # require "pry"; binding.pry
+    user = User.create!(user_params)
+    redirect_to user_path(user)
   end
 
   def discover
+  end
+
+private
+  def user_params
+    params.require(:user).permit(:name, :email)
   end
 end
