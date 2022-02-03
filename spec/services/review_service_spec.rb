@@ -11,7 +11,7 @@ RSpec.describe ReviewService, type: :service do
     end
     
     describe '::get_reviews', :vcr do
-      it 'returns json reviews' do
+      it 'returns hash of reviews' do
         reviews = ReviewService.get_reviews(11)
         
         expect(reviews).to be_a(Hash)
