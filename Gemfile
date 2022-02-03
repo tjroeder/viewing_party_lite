@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # HTTP Library service
-# gem 'net-http' # Maybe?
+gem 'net-http'
 gem 'faraday', '>= 1.8.0'
 gem 'faraday-net_http'
 
