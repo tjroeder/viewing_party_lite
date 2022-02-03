@@ -11,8 +11,10 @@ RSpec.describe MoviesFacade, type: :facade do
       end
     end
 
-    # describe '::movie_list' do
-
-    # end
+    describe '::top_20_movie_list', :vcr do
+      it 'should return array movie objects' do
+        movie_list = MovieFacade.movie_list
+      end
+    end
   end
 end
