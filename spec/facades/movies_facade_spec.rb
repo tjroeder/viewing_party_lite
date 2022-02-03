@@ -18,6 +18,11 @@ RSpec.describe MoviesFacade, type: :facade do
         expect(movie_cast[0]).to be_a(Cast)
         expect(movie_cast.length).to eq(10)
       end
+
+      it 'should return an array of objects even if cast is less than 10' do
+        movie_cast2 = MoviesFacade.movie_casts(49047)
+        expect(movie_cast2.length).to eq(7)
+      end 
     end
 
     # describe '::movie_list' do
