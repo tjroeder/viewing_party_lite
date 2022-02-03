@@ -4,7 +4,7 @@ RSpec.describe ReviewService, type: :service do
   context 'class methods' do
     describe '::conn', :vcr do
       it 'returns Faraday connection' do
-        reviews = ReviewService.conn(11)
+        reviews = ReviewService.conn
 
         expect(reviews).to be_a(Faraday::Connection)
       end
