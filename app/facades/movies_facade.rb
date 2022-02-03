@@ -7,7 +7,13 @@ class MoviesFacade
     end
   end
 
-  # def self.movie_list
+  # def self.movie
 
   # end
+
+  def self.top_20_movie_list
+    json = MovieService.top_rated_movies
+
+    json
+  end
 end
