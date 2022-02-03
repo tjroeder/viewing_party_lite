@@ -2,11 +2,19 @@ require 'rails_helper'
 
 RSpec.describe ReviewService, type: :service do
   context 'class methods' do
-    describe '::conn' do
-      it 'returns reviews' do
-        VCR.use_cassette('movie_reviews_2022_02_02') do
-          reviews = ReviewService.get_reviews(11)
-        end
+    describe '::conn', :vcr do
+      it 'returns Faraday connection' do
+        reviews = ReviewService.conn(11)
+
+        expect(reviews).to be_a(Faraday::Connection)
+      end
+    end
+    
+    describe '::get_reviews', :vcr do
+      it 'returns json reviews' do
+        reviews = ReviewService.get_reviews(11)
+        
+        expect(reviews).to be_a(Hash)
       end
     end
   end
