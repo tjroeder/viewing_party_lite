@@ -9,7 +9,7 @@ class Movie
               :reviews
 
   def initialize(data, cast, reviews)
-    @title = data[:original_title]
+    @title = data[:title]
     @movie_id = data[:id]
     @genres = create_genres(data)
     @runtime = data[:runtime]

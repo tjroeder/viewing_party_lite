@@ -12,7 +12,7 @@ RSpec.describe Movie, type: :poro do
       reviews = [review1, review2]
 
       genres = [{ id: 18, name: 'Adventure' }, { id: 14, name: 'Action' }]
-      data = { original_title: 'Star Wars', id: 11, genres: genres, runtime: 160, vote_average: 9.1, overview: 'In a galaxy far, far away' }
+      data = { title: 'Star Wars', id: 11, genres: genres, runtime: 160, vote_average: 9.1, overview: 'In a galaxy far, far away' }
       movie1 = Movie.new(data, cast, reviews)
       
       expect(movie1).to be_a(Movie)
@@ -34,7 +34,7 @@ RSpec.describe Movie, type: :poro do
       reviews = [review1, review2]
   
       genres = [{ id: 18, name: 'Adventure' }, { id: 14, name: 'Action' }]
-      data = { original_title: 'Star Wars', id: 11, genres: genres, runtime: 160, vote_average: 9.1, overview: 'In a galaxy far, far away' }
+      data = { title: 'Star Wars', id: 11, genres: genres, runtime: 160, vote_average: 9.1, overview: 'In a galaxy far, far away' }
       movie1 = Movie.new(data, cast, reviews)
 
       expect(movie1.cast.first).to be_a(Cast)
@@ -47,7 +47,7 @@ RSpec.describe Movie, type: :poro do
   # describe 'factory object' do
   #   it 'should build a valid movie object' do
   #     genres = [{ id: 18, name: 'Adventure' }, { id: 14, name: 'Action' }]
-  #     data = { original_title: 'Star Wars', id: 11, genres: genres, runtime: 160, vote_average: 9.1, overview: 'In a galaxy far, far away' }
+  #     data = { title: 'Star Wars', id: 11, genres: genres, runtime: 160, vote_average: 9.1, overview: 'In a galaxy far, far away' }
 
   #     movie = build(:movie, title: 'abc', movie_id: 5, genres: 'xyz', runtime: 11, vote_average: 3, summary: 'defsdfksdfm')
   
