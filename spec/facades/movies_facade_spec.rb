@@ -11,6 +11,15 @@ RSpec.describe MoviesFacade, type: :facade do
       end
     end
 
+    describe '::movie_casts', :vcr do
+      it 'should return array of cast objects' do
+        movie_cast = MoviesFacade.movie_casts(11)
+        expect(movie_cast).to be_a(Array)
+        expect(movie_cast[0]).to be_a(Cast)
+        expect(movie_cast.length).to eq(10)
+      end
+    end
+
     # describe '::movie_list' do
 
     # end
