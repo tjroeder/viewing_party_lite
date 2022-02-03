@@ -8,24 +8,16 @@ class Movie
               :cast,
               :reviews
 
-  def initialize(data)
+  def initialize(data, cast, reviews)
     @title = data[:original_title]
     @movie_id = data[:id]
     @genres = create_genres(data)
     @runtime = data[:runtime]
     @vote_average = data[:vote_average]
     @summary = data[:overview]
-    @cast = nil
-    @reviews = nil
+    @cast = cast
+    @reviews = reviews
   end
-
-  # def self.create_cast
-
-  # end
-
-  # def self.create_reviews
-
-  # end
 
   def create_genres(data)
     data[:genres].pluck(:name).join(', ')
