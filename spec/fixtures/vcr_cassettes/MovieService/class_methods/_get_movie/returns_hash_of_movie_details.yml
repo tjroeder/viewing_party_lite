@@ -42,14 +42,21 @@ http_interactions:
       X-Memc-Key:
       - 7688a8b40b3d4871388fc7b0d863ea192783cd4e
       X-Memc-Age:
+<<<<<<< HEAD
       - '7846'
       X-Memc-Expires:
       - '8998'
+=======
+      - '14692'
+      X-Memc-Expires:
+      - '2152'
+>>>>>>> 56e63b6 (expand review call to include multiple pages of results)
       Etag:
       - W/"dc97d74897afd0f44e6edf623e235514"
       Vary:
       - Accept-Encoding
       X-Cache:
+<<<<<<< HEAD
       - Hit from cloudfront
       Via:
       - 1.1 d29afc70fc2fdadee440493854714224.cloudfront.net (CloudFront)
@@ -59,6 +66,15 @@ http_interactions:
       - q84N-jJQXc6EUUCCJJLxR7K-6GjaP0M7nt417tQlqtDnBgj9KqxNgA==
       Age:
       - '7734'
+=======
+      - Miss from cloudfront
+      Via:
+      - 1.1 c601f966b37ebf3a1ddf28f033b35904.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SFO53-C1
+      X-Amz-Cf-Id:
+      - O_QvDLQ8hrWc_6hUFn0C7_g28B60Am-zeRZ2KZVAWDV-ahQKkecVsQ==
+>>>>>>> 56e63b6 (expand review call to include multiple pages of results)
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":"/zqkmTXzjkAgXmEWLRsY4UpTWCeo.jpg","belongs_to_collection":{"id":10,"name":"Star
@@ -72,5 +88,9 @@ http_interactions:
         Century Fox","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
         States of America"}],"release_date":"1977-05-25","revenue":775398007,"runtime":121,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"A
         long time ago in a galaxy far, far away...","title":"Star Wars","video":false,"vote_average":8.2,"vote_count":16639}'
+<<<<<<< HEAD
   recorded_at: Thu, 03 Feb 2022 21:59:23 GMT
+=======
+  recorded_at: Thu, 03 Feb 2022 21:44:34 GMT
+>>>>>>> 56e63b6 (expand review call to include multiple pages of results)
 recorded_with: VCR 6.0.0
