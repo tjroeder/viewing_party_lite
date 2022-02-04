@@ -6,4 +6,5 @@ class Party < ApplicationRecord
 
   validates :movie_id, :date, :time, :img_url, :movie_title, :runtime, :duration, presence: true
 
+  validates :duration, numericality: { greater_than_or_equal_to: :runtime }
 end
