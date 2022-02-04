@@ -79,11 +79,11 @@ Shoulda::Matchers.configure do |config|
 end
 
 VCR.configure do |c|
-  c.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   # c.register_request_matcher(:uri_without_api_key, &without_api_key)
   # c.default_cassette_options = { match_requests_on: [:method, VCR.request_matchers.uri_without_param(:api_key)] }
   c.default_cassette_options = { match_requests_on: %i[method host path] }
   c.hook_into :webmock
-  c.filter_sensitive_data('api_key') { ENV['tmdb_api_key'] }
+  c.filter_sensitive_data('<api_key>') { ENV['tmdb_api_key'] }
   c.configure_rspec_metadata!
 end

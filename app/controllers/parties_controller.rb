@@ -1,5 +1,6 @@
-class PartiesController < ApplicationController
+# frozen_string_literal: true
 
+class PartiesController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @movie = MovieFacade.create_movie(params[:movie_id])
@@ -8,7 +9,6 @@ class PartiesController < ApplicationController
   end
 
   def create
-
     @user = User.find(params[:user_id])
     @movie = MovieFacade.create_movie(params[:movie_id])
     @users = User.all

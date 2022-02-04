@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 class UserPartiesController < ApplicationController
+  def new; end
 
   def new
     # UserParty.new

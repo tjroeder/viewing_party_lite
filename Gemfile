@@ -37,15 +37,15 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # HTTP Library service
-gem 'net-http'
 gem 'faraday', '>= 1.8.0'
-gem 'faraday-net_http'
+# gem 'faraday-net_http'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'figaro'
+  gem 'net-http'
   gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop', require: false

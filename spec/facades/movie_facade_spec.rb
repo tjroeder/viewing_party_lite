@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe MovieFacade, type: :facade do
@@ -20,7 +22,7 @@ RSpec.describe MovieFacade, type: :facade do
       end
 
       it 'should return an array of objects even if cast is less than 10' do
-        movie_cast2 = MovieFacade.movie_casts(49047)
+        movie_cast2 = MovieFacade.movie_casts(49_047)
         expect(movie_cast2.length).to eq(7)
       end
     end
@@ -34,7 +36,7 @@ RSpec.describe MovieFacade, type: :facade do
         expect(star_wars.cast.first).to be_a(Cast)
       end
       it 'can get all reviews for the movie' do
-        avengers = MovieFacade.create_movie(299536)
+        avengers = MovieFacade.create_movie(299_536)
         expect(avengers).to be_a(Movie)
         expect(avengers.reviews.count).to eq(30)
       end
@@ -48,7 +50,6 @@ RSpec.describe MovieFacade, type: :facade do
         expect(movie_list.first).to be_a(Movie)
         expect(movie_list.count).to eq(20)
       end
-
     end
 
     describe '::search_movie_list', :vcr do

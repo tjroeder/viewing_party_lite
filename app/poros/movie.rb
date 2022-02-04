@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Movie
   attr_reader :title,
               :movie_id,
@@ -22,7 +24,7 @@ class Movie
   end
 
   def create_genres(data)
-    data[:genres].pluck(:name).join(', ') unless data[:genres].nil?
+    data[:genres]&.pluck(:name)&.join(', ')
   end
 
   def runtime_formatted

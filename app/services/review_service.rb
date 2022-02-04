@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class ReviewService
   def self.get_reviews(movie_id)
     initial_response = conn.get("movie/#{movie_id}/reviews")
     total_count = JSON.parse(initial_response.body, symbolize_names: true)[:total_pages]
     count = 1
     json = []
-    until count > total_count do
+    until count > total_count
       response = conn.get("movie/#{movie_id}/reviews", { page: count })
       json.push(JSON.parse(response.body, symbolize_names: true)[:results])
       count += 1

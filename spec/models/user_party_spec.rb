@@ -20,9 +20,9 @@ RSpec.describe UserParty, type: :model do
   end
 
   describe 'Class methods', :vcr do
-    describe "Guests" do
+    describe 'Guests' do
       it 'happy path' do
-        user_1 = User.create!(name:"Mara", email:"abc@gmail.com")
+        user_1 = User.create!(name: 'Mara', email: 'abc@gmail.com')
         movie = MovieFacade.create_movie(11)
         party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url, duration: 1000 )
         guest = User.create!(name: "Kelly", email: "k@gmail.com")
@@ -34,7 +34,7 @@ RSpec.describe UserParty, type: :model do
         expect(UserParty.guests(user_party.party_id)).to eq([guest.name, guest3.name])
       end
       it 'sad path' do
-        user_1 = User.create!(name:"Mara", email:"abc@gmail.com")
+        user_1 = User.create!(name: 'Mara', email: 'abc@gmail.com')
         movie = MovieFacade.create_movie(11)
         party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url, duration: 1000 )
         guest = User.create!(name: "Kelly", email: "k@gmail.com")
@@ -46,5 +46,4 @@ RSpec.describe UserParty, type: :model do
       end
     end
   end
-
 end

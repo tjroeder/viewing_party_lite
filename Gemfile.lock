@@ -275,7 +275,6 @@ DEPENDENCIES
   factory_bot_rails
   faker
   faraday (>= 1.8.0)
-  faraday-net_http
   figaro
   jbuilder (~> 2.5)
   launchy
