@@ -5,4 +5,5 @@ class Party < ApplicationRecord
   has_many :users, through: :user_parties
 
   validates :movie_id, :date, :time, :img_url, :movie_title, :runtime, presence: true
+
 end
