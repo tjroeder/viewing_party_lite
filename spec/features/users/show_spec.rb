@@ -17,12 +17,30 @@ RSpec.describe 'Users show page', type: :feature do
       it 'displays a viewing party section' do
         movie = MovieFacade.create_movie(11)
         party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url )
+        guest = User.create!(name: "Kelly", email: "k@gmail.com")
+        guest2 = User.create!(name: "Tim", email: "t@gmail.com")
+        guest3 = User.create!(name: "Seth", email: "s@gmail.com")
         user_party = UserParty.create!(user_id: user_1.id, party_id: party.id, host_status: 1)
+        user_party2 = UserParty.create!(user_id: guest.id, party_id: party.id, host_status: 0)
+        user_party3 = UserParty.create!(user_id: guest3.id, party_id: party.id, host_status: 0)
+
         visit user_path(user_1)
+
         expect(page).to have_content('Viewing Parties')
         expect(page).to have_content(movie.title)
         expect(page).to have_content(user_party.host_status)
         expect(page).to have_css('img[src="https://image.tmdb.org/t/p/w92//6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg"]')
+        expect(page).to have_content("Guests: #{guest.name} #{guest3.name}")
+      end
+
+      it 'the movie title links to the movie show page' do
+        movie = MovieFacade.create_movie(11)
+        party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url )
+        user_party = UserParty.create!(user_id: user_1.id, party_id: party.id, host_status: 1)
+        visit user_path(user_1)
+        expect(page).to have_link("#{movie.title}")
+        click_link "#{movie.title}"
+        expect(current_path).to eq(user_movie_path(user_1, movie.movie_id))
       end
     end
 

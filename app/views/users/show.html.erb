@@ -1,10 +1,13 @@
 <h2><%= @user.name %>'s Dashboard</h2>
 <%= button_to 'Discover Movies', user_discover_path(@user), method: :get %>
 <h3>Viewing Parties</h3>
-<p><% @user_parties.each do |user_party|%>
-  <p><%= user_party.party.movie_title %></p>
-  <p><%= user_party.party.date %></p>
-  <p><%= user_party.party.time %></p>
-  <p><%= user_party.host_status %></p>
+<% @user_parties.each do |user_party|%>
+  <p>Movie: <%= link_to user_party.party.movie_title, user_movie_path(@user, user_party.party.movie_id) %></p>
+  <p>Date: <%= user_party.party.date %></p>
+  <p>At: <%= user_party.party.time %></p>
+  <p><b><%= user_party.host_status %></b></p>
   <img src=<%="https://image.tmdb.org/t/p/w92/#{user_party.party.img_url}"%> alt="poster">
-<% end %></p>
+  <p>Guests: <% UserParty.guests(user_party.party_id).each do |guest| %>
+    <%= guest %>
+  <% end %></p>
+<% end %>
