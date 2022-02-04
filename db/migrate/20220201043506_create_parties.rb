@@ -10,7 +10,7 @@ class CreateParties < ActiveRecord::Migration[5.2]
       t.string :movie_title
       t.integer :runtime
       t.integer :duration
-      
+
       t.timestamps
     end
   end

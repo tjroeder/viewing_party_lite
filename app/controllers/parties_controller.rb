@@ -18,15 +18,14 @@ class PartiesController < ApplicationController
     else
       new_party = Party.create(movie_id: params[:movie_id], date: params[:date], time: params[:time], img_url: params[:img_url], movie_title: params[:movie_title], runtime: params[:runtime], duration: params[:duration])
       @users.each do |user|
-        if params[user.name] == "1"
-          UserParty.create(user_id: user.id, party_id: new_party.id)
-        end
+        UserParty.create(user_id: user.id, party_id: new_party.id) if params[user.name] == '1'
       end
       redirect_to "/users/#{@user.id}"
     end
   end
 
-private
+  private
+
   def party_params
     params.require(:party).permit(:movie_id, :date, :time, :img_url, :movie_title, :runtime, :duration)
   end
