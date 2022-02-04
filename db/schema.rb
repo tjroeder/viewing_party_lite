@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2022_02_02_181400) do
     t.string "img_url"
     t.string "movie_title"
     t.integer "runtime"
+    t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

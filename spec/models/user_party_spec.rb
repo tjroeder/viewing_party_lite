@@ -24,7 +24,7 @@ RSpec.describe UserParty, type: :model do
       it 'happy path' do
         user_1 = User.create!(name:"Mara", email:"abc@gmail.com")
         movie = MovieFacade.create_movie(11)
-        party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url )
+        party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url, duration: 1000 )
         guest = User.create!(name: "Kelly", email: "k@gmail.com")
         guest2 = User.create!(name: "Tim", email: "t@gmail.com")
         guest3 = User.create!(name: "Seth", email: "s@gmail.com")
@@ -36,7 +36,7 @@ RSpec.describe UserParty, type: :model do
       it 'sad path' do
         user_1 = User.create!(name:"Mara", email:"abc@gmail.com")
         movie = MovieFacade.create_movie(11)
-        party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url )
+        party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url, duration: 1000 )
         guest = User.create!(name: "Kelly", email: "k@gmail.com")
         guest2 = User.create!(name: "Tim", email: "t@gmail.com")
         guest3 = User.create!(name: "Seth", email: "s@gmail.com")

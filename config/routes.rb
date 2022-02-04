@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   root 'landing#index'
 
   get '/register', to: 'users#new'
-
-  get "/parties/new", to: 'parties#new'
+  resources :user_parties, only: [:create]
 
   resources :users, only: %i[show create] do
     get '/discover', to: 'users#discover'
