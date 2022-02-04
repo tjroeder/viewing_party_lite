@@ -28,36 +28,55 @@ RSpec.describe Movie, type: :poro do
       char1 = Cast.new({ name: 'Alec Guinness', character: 'Obi-Wan Kenobi' })
       char2 = Cast.new({ name: 'Carrie Fisher', character: 'Leia Organa' })
       cast = [char1, char2]
-  
+      
       review1 = Review.new({ author: 'Taco', content: 'Great Movie!' })
       review2 = Review.new({ author: 'Taco', content: 'Great Movie!' })
       reviews = [review1, review2]
-  
+      
       genres = [{ id: 18, name: 'Adventure' }, { id: 14, name: 'Action' }]
       data = { title: 'Star Wars', id: 11, genres: genres, runtime: 160, vote_average: 9.1, overview: 'In a galaxy far, far away' }
       movie1 = Movie.new(data, cast, reviews)
-
+      
       expect(movie1.cast.first).to be_a(Cast)
       expect(movie1.reviews.first).to be_a(Review)
       expect(movie1).to have_attributes(cast: [char1, char2])
       expect(movie1).to have_attributes(reviews: [review1, review2])
     end
   end
-
-  # describe 'factory object' do
-  #   it 'should build a valid movie object' do
-  #     genres = [{ id: 18, name: 'Adventure' }, { id: 14, name: 'Action' }]
-  #     data = { title: 'Star Wars', id: 11, genres: genres, runtime: 160, vote_average: 9.1, overview: 'In a galaxy far, far away' }
-
-  #     movie = build(:movie, title: 'abc', movie_id: 5, genres: 'xyz', runtime: 11, vote_average: 3, summary: 'defsdfksdfm')
   
-  #     expect(movie).to be_a(Movie)
-  #     expect(movie.title).to eq('abc')
-  #     expect(movie.movie_id).to eq(5)
-  #     expect(movie.genres).to eq('xyz')
-  #     expect(movie.runtime).to eq(11)
-  #     expect(movie.vote_average).to eq(3)
-  #     expect(movie.summary).to eq('defsdfksdfm')
-  #   end
-  # end
+  describe 'instance methods' do
+    describe '#runtime_format' do
+      it 'returns runtime formatted greater than one hour' do
+        data = { title: 'Star Wars', id: 11, genres: nil, runtime: 160, vote_average: 9.1, overview: 'In a galaxy far, far away' }
+        movie1 = Movie.new(data)
+        
+        expect(movie1.runtime_formatted).to eq('2 hrs 40 min')
+      end
+      
+      it 'returns runtime formatted less than one hour' do
+        data = { title: 'Star Wars', id: 11, genres: nil, runtime: 105, vote_average: 9.1, overview: 'In a galaxy far, far away' }
+        movie1 = Movie.new(data)
+        
+        expect(movie1.runtime_formatted).to eq('1 hr 45 min')
+      end
+    end
+    
+    describe '#review_count' do
+      it 'returns the count of total reviews' do
+        char1 = Cast.new({ name: 'Alec Guinness', character: 'Obi-Wan Kenobi' })
+        char2 = Cast.new({ name: 'Carrie Fisher', character: 'Leia Organa' })
+        cast = [char1, char2]
+        
+        review1 = Review.new({ author: 'Taco', content: 'Great Movie!' })
+        review2 = Review.new({ author: 'Taco', content: 'Great Movie!' })
+        reviews = [review1, review2]
+        
+        genres = [{ id: 18, name: 'Adventure' }, { id: 14, name: 'Action' }]
+        data = { title: 'Star Wars', id: 11, genres: genres, runtime: 160, vote_average: 9.1, overview: 'In a galaxy far, far away' }
+        movie1 = Movie.new(data, cast, reviews)
+        
+        expect(movie1.review_count).to eq(2)
+      end
+    end
+  end
 end

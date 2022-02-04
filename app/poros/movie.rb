@@ -24,4 +24,16 @@ class Movie
   def create_genres(data)
     data[:genres].pluck(:name).join(', ') unless data[:genres].nil?
   end
+
+  def runtime_formatted
+    if (@runtime / 60).to_i > 1
+      "#{(@runtime / 60).to_i} hrs #{(@runtime % 60).to_i} min"
+    else
+      "#{(@runtime / 60).to_i} hr #{(@runtime % 60).to_i} min"
+    end
+  end
+
+  def review_count
+    @reviews.count
+  end
 end
