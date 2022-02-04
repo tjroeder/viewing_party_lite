@@ -14,7 +14,7 @@ class MovieFacade
     end
   end
 
-  def self.create_movie(movie_id, cast = nil, reviews = nil)
+  def self.create_movie(movie_id)
     reviews = MovieFacade.movie_reviews(movie_id)
     cast = MovieFacade.movie_casts(movie_id)
     movie_data = MovieService.get_movie(movie_id)
