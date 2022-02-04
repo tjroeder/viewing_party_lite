@@ -6,7 +6,8 @@ class Movie
               :vote_average,
               :summary,
               :cast,
-              :reviews
+              :reviews,
+              :img_url
 
   def initialize(data, cast = nil, reviews = nil)
     @title = data[:title]
@@ -17,6 +18,7 @@ class Movie
     @summary = data[:overview]
     @cast = cast
     @reviews = reviews
+    @img_url = data[:poster_path]
   end
 
   def create_genres(data)
