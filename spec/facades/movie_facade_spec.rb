@@ -35,7 +35,6 @@ RSpec.describe MovieFacade, type: :facade do
       end
       it 'can get all reviews for the movie' do
         avengers = MovieFacade.create_movie(299536)
-        require "pry"; binding.pry
         expect(avengers).to be_a(Movie)
         expect(avengers.reviews.count).to eq(30)
       end
