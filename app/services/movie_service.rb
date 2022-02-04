@@ -20,7 +20,6 @@ class MovieService
 
   def self.conn
     url = 'https://api.themoviedb.org/3/'
-
     Faraday.new(url: url, params: { api_key: ENV['tmdb_api_key'] })
   end
 end
