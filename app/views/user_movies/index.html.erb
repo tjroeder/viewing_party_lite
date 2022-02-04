@@ -1,0 +1,13 @@
+<% if @query_params == 'top_20_rated' %>
+  <h2>Top Rated Movies</h2>
+<% else %>
+  <h2><%= "Movie results for: #{@query_params}" %></h2>
+<% end %>
+
+<%= button_to 'Discover Page', user_discover_path(@user), method: :get %>
+<h3><%= 'No movies found' if @movies.blank? %></h3>
+<section>
+  <% @movies.each do |m| %>
+    <p id="movie-<%= m.movie_id %>"><%= link_to m.title, user_movie_path(@user, m.movie_id) %> ---- Vote Average: <%= m.vote_average %></p>
+  <% end %>
+</section>
