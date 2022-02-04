@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Users show page', type: :feature do
@@ -16,10 +18,10 @@ RSpec.describe 'Users show page', type: :feature do
 
       it 'displays a viewing party section' do
         movie = MovieFacade.create_movie(11)
-        party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url, duration: 1000 )
-        guest = User.create!(name: "Kelly", email: "k@gmail.com")
-        guest2 = User.create!(name: "Tim", email: "t@gmail.com")
-        guest3 = User.create!(name: "Seth", email: "s@gmail.com")
+        party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.zone.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url, duration: 1000)
+        guest = User.create!(name: 'Kelly', email: 'k@gmail.com')
+        guest2 = User.create!(name: 'Tim', email: 't@gmail.com')
+        guest3 = User.create!(name: 'Seth', email: 's@gmail.com')
         user_party = UserParty.create!(user_id: user_1.id, party_id: party.id, host_status: 1)
         user_party2 = UserParty.create!(user_id: guest.id, party_id: party.id, host_status: 0)
         user_party3 = UserParty.create!(user_id: guest3.id, party_id: party.id, host_status: 0)
@@ -35,11 +37,11 @@ RSpec.describe 'Users show page', type: :feature do
 
       it 'the movie title links to the movie show page' do
         movie = MovieFacade.create_movie(11)
-        party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url, duration: 1000 )
+        party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.zone.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url, duration: 1000)
         user_party = UserParty.create!(user_id: user_1.id, party_id: party.id, host_status: 1)
         visit user_path(user_1)
-        expect(page).to have_link("#{movie.title}")
-        click_link "#{movie.title}"
+        expect(page).to have_link(movie.title.to_s)
+        click_link movie.title.to_s
         expect(current_path).to eq(user_movie_path(user_1, movie.movie_id))
       end
     end

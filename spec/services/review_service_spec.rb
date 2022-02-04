@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ReviewService, type: :service do
@@ -18,7 +20,7 @@ RSpec.describe ReviewService, type: :service do
         expect(reviews.count).to eq(4)
       end
       it 'returns all reviews if over 20' do
-        reviews = ReviewService.get_reviews(299536)
+        reviews = ReviewService.get_reviews(299_536)
 
         expect(reviews.count).to eq(30)
       end

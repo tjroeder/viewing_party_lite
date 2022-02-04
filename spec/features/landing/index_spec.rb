@@ -1,15 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Landing index" do
-
-  it 'displays title of application' do
-    visit root_path
-    expect(page).to have_content("Viewing Party Lite")
-  end
-
+RSpec.describe 'Landing index' do
   it 'Has a button to create a new user' do
     visit root_path
-    click_button "Create a New User"
+    click_button 'Create a New User'
     expect(current_path).to eq('/register')
   end
 

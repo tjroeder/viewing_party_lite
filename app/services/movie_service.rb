@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MovieService
   def self.get_movie(movie_id)
     response = conn.get("movie/#{movie_id}")

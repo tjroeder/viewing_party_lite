@@ -1,12 +1,15 @@
+# frozen_string_literal: true
+
 class UserMoviesController < ApplicationController
   def index
     @user = User.find(user_params)
     @query_params = query_params
 
-    if @query_params == 'top_20_rated'
+    case @query_params
+    when 'top_20_rated'
       @movies = MovieFacade.top_20_movie_list
-    elsif @query_params.is_a?(String)
-      @movies = MovieFacade.search_movie_list(@query_params)  
+    when String
+      @movies = MovieFacade.search_movie_list(@query_params)
     end
   end
 
