@@ -20,7 +20,7 @@ RSpec.describe 'User Discover Movies Page', type: :feature do
       end
     end
 
-    describe 'clickable elements' do
+    describe 'clickable elements', :vcr do
       it 'redirects the user to the top rated movies view' do
         expect(page).to have_current_path(user_discover_path(user_1))
         click_on 'Find Top Rated Movies'
@@ -31,7 +31,7 @@ RSpec.describe 'User Discover Movies Page', type: :feature do
       it 'redirects the user to a list of movies from the search parameter' do
         fill_in :q, with: 'Star Wars'
         click_button 'Find Movies'
-        
+
         expect(page).to have_current_path(user_movies_path(user_1, params: { q: 'Star Wars' }))
       end
     end
