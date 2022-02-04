@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 04 Feb 2022 00:44:46 GMT
+      - Fri, 04 Feb 2022 02:56:29 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,15 +42,15 @@ http_interactions:
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 1e5c934b70471a41d2b61ae8c4abeb78.cloudfront.net (CloudFront)
+      - 1.1 e158a5cd644f102abc630a9f56b59d78.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - jrEufMSIjjiTt57i7BhQCOh82ebi62poGW12GCqnuhK1_Bx-Yqe9Vg==
+      - QjAN0A1aYRNJfZAKfx4sFokGACBD9UoEpqoQ1wWSnDYegDURCDe0YA==
     body:
       encoding: ASCII-8BIT
       string: '{"page":1,"results":[],"total_pages":0,"total_results":0}'
-  recorded_at: Fri, 04 Feb 2022 00:44:46 GMT
+  recorded_at: Fri, 04 Feb 2022 02:56:29 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/search/movie?api_key=api_key&page=2&query=asldgahskgadshjlg
@@ -76,7 +76,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 04 Feb 2022 00:44:46 GMT
+      - Fri, 04 Feb 2022 02:56:29 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -93,13 +93,13 @@ http_interactions:
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 824a5d9ed02451bcb68b15ae5991dce0.cloudfront.net (CloudFront)
+      - 1.1 e1b5abb53c407f0a057625c46693461c.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - 8LgwG-dfXttM_LorBCKb1GvTcfbPixeoQaFzuRh0EZoQFgp5IhWPmw==
+      - bXmTbg67G6v4e1bRvXap7PILuEDho2NLSs1knounNSpKwBbENzIdCA==
     body:
       encoding: ASCII-8BIT
       string: '{"page":2,"results":[],"total_pages":0,"total_results":0}'
-  recorded_at: Fri, 04 Feb 2022 00:44:46 GMT
+  recorded_at: Fri, 04 Feb 2022 02:56:29 GMT
 recorded_with: VCR 6.0.0

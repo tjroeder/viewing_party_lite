@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 03 Feb 2022 19:50:28 GMT
+      - Fri, 04 Feb 2022 02:27:38 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,23 +42,23 @@ http_interactions:
       X-Memc-Key:
       - 7688a8b40b3d4871388fc7b0d863ea192783cd4e
       X-Memc-Age:
-      - '7846'
+      - '14775'
       X-Memc-Expires:
-      - '8998'
+      - '1520'
       Etag:
-      - W/"dc97d74897afd0f44e6edf623e235514"
+      - W/"6aa27e468d96f562b15356c1ad1bbf56"
       Vary:
       - Accept-Encoding
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 d29afc70fc2fdadee440493854714224.cloudfront.net (CloudFront)
+      - 1.1 235fa9476ee502b13c0801d1fa3b57a2.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - q84N-jJQXc6EUUCCJJLxR7K-6GjaP0M7nt417tQlqtDnBgj9KqxNgA==
+      - okC19gyOeKvGCFfyN-MG8AcJnLkhtaq5t_eLLXXoFUHhIw6yhnpn7g==
       Age:
-      - '7734'
+      - '1984'
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":"/zqkmTXzjkAgXmEWLRsY4UpTWCeo.jpg","belongs_to_collection":{"id":10,"name":"Star
@@ -71,6 +71,6 @@ http_interactions:
         justice in the Empire.","popularity":85.233,"poster_path":"/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg","production_companies":[{"id":1,"logo_path":"/o86DbpburjxrqAzEDhXZcyE8pDb.png","name":"Lucasfilm","origin_country":"US"},{"id":25,"logo_path":"/qZCc1lty5FzX30aOCVRBLzaVmcp.png","name":"20th
         Century Fox","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
         States of America"}],"release_date":"1977-05-25","revenue":775398007,"runtime":121,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"A
-        long time ago in a galaxy far, far away...","title":"Star Wars","video":false,"vote_average":8.2,"vote_count":16639}'
-  recorded_at: Thu, 03 Feb 2022 21:59:23 GMT
+        long time ago in a galaxy far, far away...","title":"Star Wars","video":false,"vote_average":8.2,"vote_count":16643}'
+  recorded_at: Fri, 04 Feb 2022 03:00:42 GMT
 recorded_with: VCR 6.0.0
