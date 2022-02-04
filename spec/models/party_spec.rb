@@ -15,6 +15,7 @@ RSpec.describe Party, type: :model do
     it { should validate_presence_of(:img_url) }
     it { should validate_presence_of(:movie_title) }
     it { should validate_presence_of(:runtime) }
+    it { should validate_presence_of(:duration) }
   end
 
   describe 'factory object' do

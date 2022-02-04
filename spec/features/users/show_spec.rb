@@ -16,7 +16,7 @@ RSpec.describe 'Users show page', type: :feature do
 
       it 'displays a viewing party section' do
         movie = MovieFacade.create_movie(11)
-        party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url )
+        party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url, duration: 1000 )
         guest = User.create!(name: "Kelly", email: "k@gmail.com")
         guest2 = User.create!(name: "Tim", email: "t@gmail.com")
         guest3 = User.create!(name: "Seth", email: "s@gmail.com")
@@ -35,7 +35,7 @@ RSpec.describe 'Users show page', type: :feature do
 
       it 'the movie title links to the movie show page' do
         movie = MovieFacade.create_movie(11)
-        party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url )
+        party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url, duration: 1000 )
         user_party = UserParty.create!(user_id: user_1.id, party_id: party.id, host_status: 1)
         visit user_path(user_1)
         expect(page).to have_link("#{movie.title}")
