@@ -7,10 +7,10 @@ RSpec.describe 'New party' do
     describe 'happy path' do
       it 'I see a form to make a new viewing party' do
         movie = MovieFacade.create_movie(11)
-        user = User.create!(name: 'Kelly', email: 'k@gmail.com')
-        guest = User.create!(name: 'Rosie', email: 'r@gmail.com')
-        guest2 = User.create!(name: 'Tim', email: 't@gmail.com')
-        guest3 = User.create!(name: 'Seth', email: 's@gmail.com')
+        user = User.create!(name: 'Kelly', email: 'k@gmail.com', password: 'test1', password_confirmation: 'test1')
+        guest = User.create!(name: 'Rosie', email: 'r@gmail.com', password: 'test2', password_confirmation: 'test2')
+        guest2 = User.create!(name: 'Tim', email: 't@gmail.com', password: 'test3', password_confirmation: 'test3')
+        guest3 = User.create!(name: 'Seth', email: 's@gmail.com', password: 'test4', password_confirmation: 'test4')
         visit "/users/#{user.id}/movies/#{movie.movie_id}/viewing_party/new"
 
         fill_in 'Duration', with: 444
@@ -23,13 +23,14 @@ RSpec.describe 'New party' do
         expect(page).to have_content(movie.title)
       end
     end
+
     describe 'sad path' do
       it 'I see a form to make a new viewing party' do
         movie = MovieFacade.create_movie(11)
-        user = User.create!(name: 'Kelly', email: 'k@gmail.com')
-        guest = User.create!(name: 'Rosie', email: 'r@gmail.com')
-        guest2 = User.create!(name: 'Tim', email: 't@gmail.com')
-        guest3 = User.create!(name: 'Seth', email: 's@gmail.com')
+        user = User.create!(name: 'Kelly', email: 'k@gmail.com', password: 'test1', password_confirmation: 'test1')
+        guest = User.create!(name: 'Rosie', email: 'r@gmail.com', password: 'test2', password_confirmation: 'test2')
+        guest2 = User.create!(name: 'Tim', email: 't@gmail.com', password: 'test3', password_confirmation: 'test3')
+        guest3 = User.create!(name: 'Seth', email: 's@gmail.com', password: 'test4', password_confirmation: 'test4')
         visit "/users/#{user.id}/movies/#{movie.movie_id}/viewing_party/new"
 
         fill_in 'Duration', with: 1
