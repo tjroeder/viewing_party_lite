@@ -22,24 +22,24 @@ RSpec.describe UserParty, type: :model do
   describe 'Class methods', :vcr do
     describe 'Guests' do
       it 'happy path' do
-        user_1 = User.create!(name: 'Mara', email: 'abc@gmail.com')
+        user_1 = User.create!(name: 'Mara', email: 'abc@gmail.com', password: 'test1', password_confirmation: 'test1')
         movie = MovieFacade.create_movie(11)
         party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.zone.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url, duration: 1000)
-        guest = User.create!(name: 'Kelly', email: 'k@gmail.com')
-        guest2 = User.create!(name: 'Tim', email: 't@gmail.com')
-        guest3 = User.create!(name: 'Seth', email: 's@gmail.com')
+        guest = User.create!(name: 'Kelly', email: 'k@gmail.com', password: 'test2', password_confirmation: 'test2')
+        guest2 = User.create!(name: 'Tim', email: 't@gmail.com', password: 'test3', password_confirmation: 'test3')
+        guest3 = User.create!(name: 'Seth', email: 's@gmail.com', password: 'test4', password_confirmation: 'test4')
         user_party = UserParty.create!(user_id: user_1.id, party_id: party.id, host_status: 1)
         user_party2 = UserParty.create!(user_id: guest.id, party_id: party.id, host_status: 0)
         user_party3 = UserParty.create!(user_id: guest3.id, party_id: party.id, host_status: 0)
         expect(UserParty.guests(user_party.party_id)).to eq([guest.name, guest3.name])
       end
       it 'sad path' do
-        user_1 = User.create!(name: 'Mara', email: 'abc@gmail.com')
+        user_1 = User.create!(name: 'Mara', email: 'abc@gmail.com', password: 'test1', password_confirmation: 'test1')
         movie = MovieFacade.create_movie(11)
         party = Party.create!(movie_title: movie.title, movie_id: movie.movie_id, time: Time.zone.now, date: Date.today, runtime: movie.runtime, img_url: movie.img_url, duration: 1000)
-        guest = User.create!(name: 'Kelly', email: 'k@gmail.com')
-        guest2 = User.create!(name: 'Tim', email: 't@gmail.com')
-        guest3 = User.create!(name: 'Seth', email: 's@gmail.com')
+        guest = User.create!(name: 'Kelly', email: 'k@gmail.com', password: 'test2', password_confirmation: 'test2')
+        guest2 = User.create!(name: 'Tim', email: 't@gmail.com', password: 'test3', password_confirmation: 'test3')
+        guest3 = User.create!(name: 'Seth', email: 's@gmail.com', password: 'test4', password_confirmation: 'test4')
         user_party = UserParty.create!(user_id: user_1.id, party_id: party.id, host_status: 1)
         user_party2 = UserParty.create!(user_id: guest.id, party_id: party.id, host_status: 0)
         expect(UserParty.guests(user_party.party_id)).to eq([guest.name])
