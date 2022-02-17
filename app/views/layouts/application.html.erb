@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <% flash.each do |type, msg| %>
+      <div id="flash-<%= type %>" class="flash-<%= type %>">
+          <h1><%= msg %></h1>
+      </div>
+    <% end %>
     <%= link_to 'Home', root_path %>
     <h1>Viewing Party Light</h1>
     <%= yield %>
