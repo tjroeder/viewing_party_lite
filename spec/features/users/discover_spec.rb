@@ -4,8 +4,16 @@ require 'rails_helper'
 
 RSpec.describe 'User Discover Movies Page', type: :feature do
   context 'as a user' do
-    let!(:user_1) { create(:user) }
-    before(:each) { visit user_discover_path(user_1) }
+    before(:each) do
+      @user = create(:user)
+      visit login_path
+      
+      fill_in 'email', with: @user.email
+      fill_in 'password', with: @user.password
+      click_button 'Log in'
+    end
+
+    before(:each) { visit user_discover_path(@user) }
 
     describe 'viewable elements' do
       it 'displays a header with discover movies' do
@@ -24,17 +32,17 @@ RSpec.describe 'User Discover Movies Page', type: :feature do
 
     describe 'clickable elements', :vcr do
       it 'redirects the user to the top rated movies view' do
-        expect(page).to have_current_path(user_discover_path(user_1))
+        expect(page).to have_current_path(user_discover_path(@user))
         click_on 'Find Top Rated Movies'
 
-        expect(page).to have_current_path(user_movies_path(user_1, params: { q: 'top_20_rated' }))
+        expect(page).to have_current_path(user_movies_path(@user, params: { q: 'top_20_rated' }))
       end
 
       it 'redirects the user to a list of movies from the search parameter' do
         fill_in :q, with: 'Star Wars'
         click_button 'Find Movies'
 
-        expect(page).to have_current_path(user_movies_path(user_1, params: { q: 'Star Wars' }))
+        expect(page).to have_current_path(user_movies_path(@user, params: { q: 'Star Wars' }))
       end
     end
   end

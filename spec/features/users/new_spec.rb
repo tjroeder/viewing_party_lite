@@ -4,6 +4,15 @@ require 'rails_helper'
 
 RSpec.describe 'New user' do
   context 'as a user' do
+    before(:each) do
+      @user = create(:user)
+      visit login_path
+      
+      fill_in 'email', with: @user.email
+      fill_in 'password', with: @user.password
+      click_button 'Log in'
+    end
+    
     describe 'clickable elements' do
       it 'has a form that creates new users' do
         visit '/register'

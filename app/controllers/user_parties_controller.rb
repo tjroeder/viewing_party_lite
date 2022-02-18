@@ -3,11 +3,6 @@
 class UserPartiesController < ApplicationController
   def new; end
 
-  def new
-    # UserParty.new
-    # redirect_to user_parties_path, action: :post
-  end
-
   def create
     user = User.find_by(name: params[:name])
     party = Party.find(params[:id])

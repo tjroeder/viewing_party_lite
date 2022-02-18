@@ -4,14 +4,22 @@ require 'rails_helper'
 
 RSpec.describe 'User Movies results index page', type: :feature do
   context 'as a user' do
-    let!(:user_1) { create(:user) }
-    before(:each) { visit user_discover_path(user_1) }
+    before(:each) do
+      @user = create(:user)
+      visit login_path
+      
+      fill_in 'email', with: @user.email
+      fill_in 'password', with: @user.password
+      click_button 'Log in'
+    end
+
+    before(:each) { visit user_discover_path(@user) }
 
     describe 'viewable elements', :vcr do
       it 'displays header top rated movies when selected' do
         click_on 'Find Top Rated Movies'
 
-        expect(page).to have_current_path(user_movies_path(user_1, params: { q: 'top_20_rated' }))
+        expect(page).to have_current_path(user_movies_path(@user, params: { q: 'top_20_rated' }))
         expect(page).to have_content('Top Rated Movies')
         expect(page).to have_no_content('Movie results for: ')
       end
@@ -20,7 +28,7 @@ RSpec.describe 'User Movies results index page', type: :feature do
         fill_in :q, with: 'Star Wars'
         click_button 'Find Movies'
 
-        expect(page).to have_current_path(user_movies_path(user_1, params: { q: 'Star Wars' }))
+        expect(page).to have_current_path(user_movies_path(@user, params: { q: 'Star Wars' }))
         expect(page).to have_content('Movie results for: Star Wars')
         expect(page).to have_no_content('Top Rated Movies')
       end
@@ -96,7 +104,7 @@ RSpec.describe 'User Movies results index page', type: :feature do
         click_on 'Find Top Rated Movies'
         click_on 'Discover Page'
 
-        expect(page).to have_current_path(user_discover_path(user_1))
+        expect(page).to have_current_path(user_discover_path(@user))
       end
 
       it 'each movie has links redirecting to view the movie details' do
@@ -106,13 +114,13 @@ RSpec.describe 'User Movies results index page', type: :feature do
           expect(page).to have_css('a', count: 20)
 
           within('#movie-730154') do
-            expect(page).to have_link('Your Eyes Tell', href: user_movie_path(user_1, 730_154))
+            expect(page).to have_link('Your Eyes Tell', href: user_movie_path(@user, 730_154))
 
             click_on 'Your Eyes Tell'
           end
         end
 
-        expect(page).to have_current_path(user_movie_path(user_1, 730_154))
+        expect(page).to have_current_path(user_movie_path(@user, 730_154))
         expect(page).to have_content('Your Eyes Tell')
       end
     end

@@ -4,9 +4,17 @@ require 'rails_helper'
 
 RSpec.describe 'User movies show/detail page', type: :feature do
   context 'as a user', :vcr do
-    let!(:user_1) { create(:user) }
+    before(:each) do
+      @user = create(:user)
+      visit login_path
+      
+      fill_in 'email', with: @user.email
+      fill_in 'password', with: @user.password
+      click_button 'Log in'
+    end
+
     let!(:movie_1) { MovieFacade.create_movie(11) }
-    before(:each) { visit user_movie_path(user_1, movie_1.movie_id) }
+    before(:each) { visit user_movie_path(@user, movie_1.movie_id) }
 
     describe 'viewable elements' do
       it 'displays header of the movie title' do
@@ -71,13 +79,13 @@ RSpec.describe 'User movies show/detail page', type: :feature do
       it 'returns back to the discover page when clicked' do
         click_on 'Discover Page'
 
-        expect(page).to have_current_path(user_discover_path(user_1))
+        expect(page).to have_current_path(user_discover_path(@user))
       end
 
       it 'redirects to create a new viewing party for the user movie' do
         click_on "Create Viewing Party for #{movie_1.title}"
 
-        expect(page).to have_current_path(new_user_movie_viewing_party_path(user_1, movie_1.movie_id))
+        expect(page).to have_current_path(new_user_movie_viewing_party_path(@user, movie_1.movie_id))
       end
     end
   end

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :require_user, only: %i[show discover]
+
   def show
     @user = User.find(params[:id])
     @user_parties = UserParty.where(user_id: @user.id)
@@ -21,21 +23,22 @@ class UsersController < ApplicationController
   end
 
   def discover
-    @user = User.find(params[:user_id])
-  end
-
-  def login_form
-  end
-
-  def login_user
+    # @user = User.find(params[:user_id])
     @user = User.find_by(email: login_params[:email])
-    if @user && @user.authenticate(login_params[:password])
-      redirect_to user_discover_path(@user)
-    else
-      flash[:alert] = 'Email and/or password does not match a record on file'
-      redirect_to login_path
-    end
   end
+
+  # def login_form
+  # end
+
+  # def login_user
+  #   @user = User.find_by(email: login_params[:email])
+  #   if @user && @user.authenticate(login_params[:password])
+  #     redirect_to user_discover_path(@user)
+  #   else
+  #     flash[:alert] = 'Email and/or password does not match a record on file'
+  #     redirect_to login_path
+  #   end
+  # end
 
   private
 
